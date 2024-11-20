@@ -26,7 +26,7 @@ export type Student = {
     id: string,
     name: UserName,
     gender: "male" | "female",
-    dateOfBirth: string,
+    dateOfBirth?: string,
     email: string,
     contactNo: string,
     emergencyContactNo: string,
@@ -36,5 +36,5 @@ export type Student = {
     guardian: Guardian,
     localGuardian : LocalGuardian,
     profileImage?: string,
-    isActive: 'active' | 'inActive'
+    isActive: 'active' | 'block'
 }
