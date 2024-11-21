@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
-import validator from 'validator';
-
+// import validator from 'validator';
 import {
   Student,
   LocalGuardian,
@@ -15,13 +14,13 @@ const userNameSchema = new Schema<UserName>({
     required: [true, "bhai first name lagbei lagbe"],
     trim:true, 
     maxlength:[20, 'First Name can not be more than 20 character'] ,
-    validate: {
-        validator:function(value: string){
-            const firstName = value.charAt(0).toUpperCase()+value.slice(1);
-            return firstName === value;
-        },
-        message: '{VALUE} is not in capitalize format'
-    }
+    // validate: {
+    //     validator:function(value: string){
+    //         const firstName = value.charAt(0).toUpperCase()+value.slice(1);
+    //         return firstName === value;
+    //     },
+    //     message: '{VALUE} is not in capitalize format'
+    // }
 },
   middleName: { 
     type: String,
@@ -32,11 +31,11 @@ const userNameSchema = new Schema<UserName>({
     trim:true,  
     required: [true, "bhai last name lagbei lagbe"],
     // using validator
-    validate:{
-        // isAlpha --> prevent the numeric value in last name
-        validator:(value: string)=> validator.isAlpha(value),
-        message: '{VALUE} is not valid'
-    } 
+    // validate:{
+    //     // isAlpha --> prevent the numeric value in last name
+    //     validator:(value: string)=> validator.isAlpha(value),
+    //     message: '{VALUE} is not valid'
+    // } 
 },
 });
 
@@ -105,10 +104,10 @@ const studentSchema = new Schema<Student>({
     type: String, 
     required: [true, 'Email is required'] , 
     unique:true,
-    validate:{
-        validator:(value:string)=> validator.isEmail(value),
-        message:'{VALUE} is not a valid email'
-    }
+    // validate:{
+    //     validator:(value:string)=> validator.isEmail(value),
+    //     message:'{VALUE} is not a valid email'
+    // }
 },
   contactNo: { type: String, required: true },
   emergencyContactNo: { type: String, required: true },
